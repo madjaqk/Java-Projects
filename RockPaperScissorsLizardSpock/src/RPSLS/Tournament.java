@@ -4,6 +4,7 @@ package RPSLS;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class Tournament {
 	private static ArrayList<Player> bots = new ArrayList<>();
@@ -42,6 +43,7 @@ public class Tournament {
 		bots.add(new CopyCat());
 		bots.add(new Cyclist());
 		bots.add(new WinnerBot());
+		bots.add(new Awareqwx());
 		
 		System.out.println(bots.size());
 		int[][] results = new int[bots.size()][bots.size()];
@@ -57,7 +59,11 @@ public class Tournament {
 			}
 		}
 		
-		System.out.println(Arrays.deepToString(results));
+//		System.out.println(Arrays.deepToString(results));
+		
+		for(int[] result: results) {
+			System.out.println(Arrays.toString(result));
+		}
 		
 		for(int i = 0; i < bots.size(); i++) {
 			int wins = 0;
@@ -66,7 +72,7 @@ public class Tournament {
 					wins++;
 				}
 			}
-			System.out.println(bots.get(i).getClass().getSimpleName() + ": " + wins);
+			System.out.println(bots.get(i).getClass().getSimpleName() + ": " + wins + " (" + IntStream.of(results[i]).sum() +")");
 		}
 	}
 
