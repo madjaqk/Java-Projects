@@ -44,6 +44,7 @@ public class Tournament {
 		bots.add(new Cyclist());
 		bots.add(new WinnerBot());
 		bots.add(new Awareqwx());
+		bots.add(new MikeandJonBot());
 		
 		System.out.println(bots.size());
 		int[][] results = new int[bots.size()][bots.size()];
